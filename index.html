@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kimusubi Aïkido &amp; Iaïdo — Gignac (34) | Arts martiaux japonais depuis 1981</title>
+<meta name="description" content="Club d'Aïkido et de Iaïdo à Gignac (Hérault) depuis 1981. Cours enfants et adultes au Centre Culturel et Sportif. Essai gratuit, ambiance conviviale.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@500;700;800&family=Manrope:wght@400;500;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --indigo:#26415E;
+  --indigo-deep:#182A40;
+  --ink:#23272B;
+  --washi:#F6F4EE;
+  --washi-dim:#ECE8DE;
+  --hanko:#B3402E;
+  --line:#D8D3C6;
+  --radius:4px;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion: reduce){html{scroll-behavior:auto}*{animation:none!important;transition:none!important}}
+body{
+  font-family:'Manrope',system-ui,sans-serif;
+  background:var(--washi);
+  color:var(--ink);
+  line-height:1.65;
+  font-size:16.5px;
+}
+/* Fond lavis discret sur toute la page */
+.fond-page{
+  position:fixed;inset:0;z-index:-1;
+  background:url('img/fond-page.jpg') center/cover no-repeat;
+  opacity:.35;
+}
+h1,h2,h3{font-family:'Shippori Mincho',serif;line-height:1.25}
+a{color:var(--indigo);text-decoration:none}
+a:focus-visible,button:focus-visible{outline:3px solid var(--indigo);outline-offset:3px}
+img{max-width:100%;display:block}
+
+/* ---------- Nav ---------- */
+nav{
+  position:sticky;top:0;z-index:50;
+  background:rgba(246,244,238,.94);backdrop-filter:blur(8px);
+  border-bottom:1px solid var(--line);
+}
+.nav-inner{max-width:1080px;margin:0 auto;padding:.8rem 1.2rem;display:flex;align-items:center;justify-content:space-between;gap:1rem}
+.brand{display:flex;align-items:center;gap:.7rem;font-family:'Shippori Mincho',serif;font-weight:800;font-size:1.05rem;color:var(--ink)}
+.hanko{
+  width:38px;height:38px;background:var(--hanko);color:#fff;
+  display:grid;place-items:center;border-radius:3px;
+  font-family:'Shippori Mincho',serif;font-size:.78rem;line-height:1.05;
+  writing-mode:vertical-rl;font-weight:700;letter-spacing:.05em;flex:0 0 auto;
+}
+.nav-links{display:flex;gap:1.4rem;font-weight:700;font-size:.86rem;letter-spacing:.03em;text-transform:uppercase}
+.nav-links a{color:var(--ink)}
+.nav-links a:hover{color:var(--indigo)}
+@media(max-width:760px){
+  .nav-inner{flex-direction:column;align-items:flex-start;gap:.5rem;padding-bottom:.6rem}
+  .nav-links{width:100%;overflow-x:auto;gap:1.1rem;font-size:.78rem;white-space:nowrap;-webkit-overflow-scrolling:touch;padding-bottom:.2rem}
+}
+
+/* ---------- Hero clair sur illustration sumi-e ---------- */
+header.hero{
+  position:relative;overflow:hidden;color:var(--ink);
+  background:
+    linear-gradient(180deg, rgba(246,244,238,.55) 0%, rgba(246,244,238,.15) 35%, rgba(246,244,238,.55) 100%),
+    url('img/fond-hero.jpg') center/cover no-repeat;
+  border-bottom:1px solid var(--line);
+}
+.hero-inner{max-width:1080px;margin:0 auto;padding:6rem 1.2rem 5rem;position:relative;text-align:center}
+.hero .kanji{
+  position:absolute;right:1.2rem;top:2rem;
+  writing-mode:vertical-rl;font-family:'Shippori Mincho',serif;
+  font-size:clamp(2.6rem,7vw,4.5rem);font-weight:500;color:var(--ink);opacity:.14;letter-spacing:.25em;
+  user-select:none;pointer-events:none;
+}
+.eyebrow{font-size:.82rem;font-weight:800;letter-spacing:.22em;text-transform:uppercase;color:var(--indigo);margin-bottom:1rem}
+.hero h1{font-size:clamp(2.8rem,8vw,4.8rem);font-weight:800;letter-spacing:.01em}
+.hero h1 span{display:block;font-size:clamp(1.05rem,3vw,1.5rem);font-weight:500;margin-top:.6rem;color:#3d4248}
+.hero p.lede{max-width:32rem;margin:1.4rem auto 2.2rem;font-size:1.05rem;color:#3d4248}
+.btn{
+  display:inline-block;background:var(--indigo);color:#fff;
+  font-weight:800;padding:.85rem 1.7rem;border-radius:var(--radius);
+  letter-spacing:.03em;font-size:.95rem;
+}
+.btn:hover{background:var(--indigo-deep)}
+.btn.ghost{background:rgba(246,244,238,.75);color:var(--indigo-deep);border:1.5px solid var(--indigo);margin-left:.6rem}
+.btn.ghost:hover{background:#fff}
+.hero .depuis{margin-top:2.6rem;font-size:.85rem;letter-spacing:.14em;text-transform:uppercase;color:#5a5e63}
+.hero-illu-mobile{display:none}
+@media(max-width:760px){
+  header.hero{background:var(--washi)} /* fond propre : plus de recadrage sauvage */
+  .hero-inner{padding:3.2rem 1.2rem 2.4rem}
+  .hero .kanji{font-size:2.2rem;top:1.2rem;right:.8rem}
+  .hero p.lede{font-size:1rem}
+  .btn,.btn.ghost{display:block;margin:0 auto .8rem;max-width:280px}
+  .btn.ghost{margin-left:auto}
+  .hero .depuis{margin-top:1.6rem}
+  /* l'illustration s'affiche entière sous le texte, jamais coupée */
+  .hero-illu-mobile{display:block;width:100%;height:auto;border-top:1px solid var(--line)}
+  .fond-page{opacity:.18}
+}
+
+/* ---------- Sections ---------- */
+section{max-width:1080px;margin:0 auto;padding:4rem 1.2rem}
+.section-title{display:flex;align-items:baseline;gap:1rem;margin-bottom:2rem;border-bottom:1px solid var(--line);padding-bottom:1rem}
+.section-title h2{font-size:clamp(1.5rem,4vw,2.1rem);font-weight:700}
+.section-title .jp{font-family:'Shippori Mincho',serif;color:var(--indigo);opacity:.55;font-size:1.1rem}
+
+/* Bandeau illustration pleine largeur */
+.bandeau{
+  width:100%;height:clamp(180px,28vw,320px);
+  background:url('img/bandeau-sumi.jpg') center/cover no-repeat;
+  border-top:1px solid var(--line);border-bottom:1px solid var(--line);
+}
+
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem}
+@media(max-width:760px){.grid2{grid-template-columns:1fr}}
+.card{
+  background:rgba(255,255,255,.92);border:1px solid var(--line);border-radius:var(--radius);
+  padding:1.8rem;border-top:4px solid var(--indigo);
+}
+.card h3{font-size:1.35rem;margin-bottom:.3rem}
+.card .sub{font-size:.85rem;color:var(--indigo);font-weight:700;letter-spacing:.08em;text-transform:uppercase;margin-bottom:1rem}
+.card p{font-size:.97rem;margin-bottom:.8rem}
+.card p:last-child{margin-bottom:0}
+
+table{width:100%;border-collapse:collapse;background:rgba(255,255,255,.92);border:1px solid var(--line);font-size:.95rem}
+th,td{padding:.85rem 1rem;text-align:left;border-bottom:1px solid var(--line)}
+th{background:var(--indigo);color:var(--washi);font-family:'Manrope',sans-serif;font-weight:800;font-size:.82rem;letter-spacing:.06em;text-transform:uppercase}
+tr:last-child td{border-bottom:none}
+td strong{font-weight:800}
+/* Horaires en cartes sur mobile : plus de débordement */
+@media(max-width:600px){
+  #horaires table, #horaires tbody, #horaires tr, #horaires td{display:block;width:100%}
+  #horaires thead{display:none}
+  #horaires table{background:transparent;border:none}
+  #horaires tr{
+    background:rgba(255,255,255,.94);border:1px solid var(--line);
+    border-left:4px solid var(--indigo);border-radius:var(--radius);
+    margin-bottom:.8rem;padding:.9rem 1rem;
+  }
+  #horaires td{border:none;padding:.15rem 0;font-size:.95rem}
+  #horaires td[data-label]::before{
+    content:attr(data-label);display:inline-block;min-width:6.2rem;
+    font-size:.72rem;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--indigo);
+  }
+}
+.note{font-size:.87rem;color:#5a5e63;margin-top:.9rem}
+
+.tarifs{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem}
+@media(max-width:760px){.tarifs{grid-template-columns:1fr}}
+.tarif{background:rgba(255,255,255,.92);border:1px solid var(--line);border-radius:var(--radius);padding:1.6rem}
+.tarif h3{font-size:1.15rem;margin-bottom:1rem}
+.tarif ul{list-style:none}
+.tarif li{display:flex;justify-content:space-between;gap:1rem;padding:.5rem 0;border-bottom:1px dashed var(--line);font-size:.95rem}
+.tarif li:last-child{border-bottom:none}
+.tarif li b{font-weight:800;white-space:nowrap}
+
+.ens{display:grid;grid-template-columns:repeat(3,1fr);gap:1.2rem}
+@media(max-width:760px){.ens{grid-template-columns:1fr}}
+.ens .card{border-top-color:var(--ink)}
+.ens .dan{font-size:.83rem;color:var(--indigo);font-weight:700}
+
+/* Vie du club — fond illustré */
+.vie-wrap{
+  background:
+    linear-gradient(rgba(246,244,238,.82), rgba(246,244,238,.82)),
+    url('img/fond-vie.jpg') center/cover no-repeat;
+  border-top:1px solid var(--line);border-bottom:1px solid var(--line);
+}
+.widgets{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem}
+@media(max-width:900px){.widgets{grid-template-columns:1fr}}
+.widget{
+  border:2px dashed var(--indigo);border-radius:var(--radius);
+  padding:2.2rem 1.6rem;text-align:center;background:rgba(236,232,222,.8);
+  color:var(--indigo-deep);font-weight:700;font-size:.95rem;
+}
+.widget small{display:block;font-weight:500;margin-top:.5rem;color:#5a5e63}
+.fb-card{background:rgba(255,255,255,.94);border:1px solid var(--line);border-radius:var(--radius);padding:1rem;text-align:center}
+
+.contact-grid{display:grid;grid-template-columns:1.2fr 1fr;gap:2rem}
+@media(max-width:760px){.contact-grid{grid-template-columns:1fr}}
+.contact-card{background:var(--indigo-deep);color:var(--washi);padding:2rem;border-radius:var(--radius)}
+.contact-card h3{margin-bottom:1rem}
+.contact-card p{margin-bottom:.9rem;font-size:.97rem}
+.contact-card a{color:#fff;font-weight:800;border-bottom:1px solid rgba(255,255,255,.4)}
+.essai{
+  background:rgba(255,255,255,.94);border:1px solid var(--line);border-left:4px solid var(--hanko);
+  padding:1.6rem;border-radius:var(--radius);font-size:.97rem;
+}
+.essai b{font-weight:800}
+
+footer{background:var(--ink);color:#c9c6bd;margin-top:3rem}
+.foot-inner{max-width:1080px;margin:0 auto;padding:2.5rem 1.2rem;font-size:.85rem;display:grid;grid-template-columns:1fr 1fr;gap:2rem}
+@media(max-width:760px){.foot-inner{grid-template-columns:1fr}}
+footer a{color:#e8e5db}
+footer h4{color:#fff;font-family:'Manrope',sans-serif;font-size:.8rem;letter-spacing:.12em;text-transform:uppercase;margin-bottom:.8rem}
+.foot-bottom{border-top:1px solid #3a3e43;padding:1rem 1.2rem;text-align:center;font-size:.78rem;color:#8d8a82}
+</style>
+</head>
+<body>
+<div class="fond-page" aria-hidden="true"></div>
+
+<nav aria-label="Navigation principale">
+  <div class="nav-inner">
+    <a class="brand" href="#top" aria-label="Kimusubi Gignac — accueil">
+      <span class="hanko" aria-hidden="true">氣結</span>
+      Kimusubi Gignac
+    </a>
+    <div class="nav-links">
+      <a href="#disciplines">Disciplines</a>
+      <a href="#horaires">Horaires</a>
+      <a href="#tarifs">Tarifs</a>
+      <a href="#actus">Vie du club</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </div>
+</nav>
+
+<header class="hero" id="top">
+  <div class="hero-inner">
+    <span class="kanji" aria-hidden="true">合気道</span>
+    <p class="eyebrow">Aïkido · Iaïdo — Gignac, Hérault</p>
+    <h1>Kimusubi
+      <span>L'art de l'harmonie, le sabre de l'esprit.</span>
+    </h1>
+    <p class="lede">Un dojo convivial au cœur de la vallée de l'Hérault. Pas de compétition, pas d'épreuve de force : une pratique en souplesse, accessible à toutes et à tous, des enfants aux adultes.</p>
+    <a class="btn" href="#contact">Venir essayer</a>
+    <a class="btn ghost" href="#horaires">Voir les horaires</a>
+    <p class="depuis">Dojo fondé en 1981 — parmi les plus importants de l'Hérault</p>
+  </div>
+  <img class="hero-illu-mobile" src="img/fond-hero.jpg" alt="Illustration à l'encre : un pratiquant de iaïdo au sabre et une technique d'aïkido" loading="lazy">
+</header>
+
+<section id="disciplines">
+  <div class="section-title"><h2>Deux disciplines, une même voie</h2><span class="jp">道</span></div>
+  <div class="grid2">
+    <div class="card">
+      <h3>Aïkido</h3>
+      <p class="sub">Enfants dès 6 ans &amp; adultes</p>
+      <p>Art martial japonais fondé par maître Morihei Ueshiba, introduit en France dans les années 1960 sous l'impulsion de maître Tamura Sensei, 8e dan. Une méthode complète d'éducation physique et morale : courtoisie, respect de l'autre, entraide et persévérance se cultivent sur les tatamis.</p>
+      <p>La recherche de l'aïkidoka est celle de l'équilibre optimum de l'individu, par rapport à lui-même et à son environnement. Il n'y a aucune violence : tout se fait en souplesse.</p>
+    </div>
+    <div class="card">
+      <h3>Iaïdo</h3>
+      <p class="sub">À partir de 14 ans</p>
+      <p>Hérité des samouraïs, le Iaïdo est l'art de dégainer et de manier le sabre japonais — littéralement « la Voie de l'Unité de l'Être ». La pratique s'effectue au katana, au iaï-to (sabre non tranchant) ou au bokken pour les débutants, à travers des katas codifiés.</p>
+      <p>Nous pratiquons l'école fédérale Seitei Iaï ainsi que l'école Muso Shinden Ryu, la plus enseignée en France. Prêt de matériel par le club la première année.</p>
+    </div>
+  </div>
+</section>
+
+<section id="horaires">
+  <div class="section-title"><h2>Horaires</h2><span class="jp">時</span></div>
+  <table>
+    <thead><tr><th>Jour</th><th>Discipline</th><th>Public</th><th>Heure</th></tr></thead>
+    <tbody>
+      <tr><td data-label="Jour"><strong>Lundi</strong></td><td data-label="Discipline">Aïkido</td><td data-label="Public">Enfants</td><td data-label="Heure">18h00 – 19h00</td></tr>
+      <tr><td data-label="Jour"><strong>Lundi</strong></td><td data-label="Discipline">Aïkido</td><td data-label="Public">Adultes</td><td data-label="Heure">19h00 – 21h00</td></tr>
+      <tr><td data-label="Jour"><strong>Mercredi</strong></td><td data-label="Discipline">Aïkido</td><td data-label="Public">Préparation grades</td><td data-label="Heure">19h00 – 21h00</td></tr>
+      <tr><td data-label="Jour"><strong>Mercredi</strong></td><td data-label="Discipline">Iaïdo</td><td data-label="Public">Dès 14 ans</td><td data-label="Heure">19h00 – 21h00</td></tr>
+      <tr><td data-label="Jour"><strong>Vendredi</strong></td><td data-label="Discipline">Aïkido</td><td data-label="Public">Enfants</td><td data-label="Heure">18h00 – 19h00</td></tr>
+      <tr><td data-label="Jour"><strong>Vendredi</strong></td><td data-label="Discipline">Aïkido</td><td data-label="Public">Adultes</td><td data-label="Heure">19h00 – 21h00</td></tr>
+      <tr><td data-label="Jour"><strong>Samedi</strong></td><td data-label="Discipline">Iaïdo</td><td data-label="Public">Dès 14 ans</td><td data-label="Heure">9h00 – 12h00</td></tr>
+    </tbody>
+  </table>
+  <p class="note">Tous les cours ont lieu dans la salle d'Aïkido du Centre Culturel et Sportif, avenue du Mas Salat, 34150 Gignac.</p>
+</section>
+
+<div class="bandeau" role="img" aria-label="Illustration à l'encre : pratiquants d'aïkido et de iaïdo"></div>
+
+<section id="tarifs">
+  <div class="section-title"><h2>Tarifs</h2><span class="jp">円</span></div>
+  <div class="tarifs">
+    <div class="tarif">
+      <h3>Aïkido</h3>
+      <ul>
+        <li>Licence adulte <b>36 €</b></li>
+        <li>Licence enfant <b>26 €</b></li>
+        <li>Cotisation adulte <b>150 €</b></li>
+        <li>Cotisation enfant <b>120 €</b></li>
+      </ul>
+      <p class="note">Paiement en 3 fois possible. Tarifs dégressifs pour un cours par semaine et dès le 2ᵉ adhérent d'une même famille.</p>
+    </div>
+    <div class="tarif">
+      <h3>Iaïdo</h3>
+      <ul>
+        <li>Licence <b>38 €</b></li>
+        <li>Passeport (1ʳᵉ année) <b>10 €</b></li>
+        <li>Cotisation club <b>60 €</b></li>
+        <li>Adhérents section Aïkido <b>Gratuit</b></li>
+      </ul>
+      <p class="note">Prêt de iaï-to ou de bokken par le club avant un achat personnel. Tenue obligatoire dès la 2ᵉ année.</p>
+    </div>
+  </div>
+</section>
+
+<section id="enseignants">
+  <div class="section-title"><h2>Les enseignants</h2><span class="jp">師</span></div>
+  <div class="ens">
+    <div class="card"><h3>Pierre Brun</h3><p class="dan">Aïkido — 6ᵉ dan, Brevet d'État</p></div>
+    <div class="card"><h3>Guillaume Duroux</h3><p class="dan">Aïkido — 5ᵉ dan, Brevet Fédéral</p></div>
+    <div class="card"><h3>Franck Mathieu</h3><p class="dan">Aïkido — 4ᵉ dan, Brevet Fédéral</p></div>
+    <div class="card"><h3>Agathe Legros</h3><p class="dan">Aïkido enfants — 3ᵉ dan</p></div>
+    <div class="card"><h3>Sébastien Barande</h3><p class="dan">Aïkido enfants — 2ᵉ dan, Brevet Fédéral</p></div>
+    <div class="card"><h3>Dominique Higounet</h3><p class="dan">Aïkido enfants — assistant, 1ᵉʳ dan</p></div>
+    <div class="card"><h3>Dominique Higounet</h3><p class="dan">Iaïdo — 3ᵉ dan</p></div>
+    <div class="card"><h3>Jean-Claude Saunier</h3><p class="dan">Iaïdo — 2ᵉ dan</p></div>
+  </div>
+</section>
+
+<div class="vie-wrap">
+<section id="actus">
+  <div class="section-title"><h2>La vie du club</h2><span class="jp">今</span></div>
+  <div class="widgets">
+    <div class="widget" id="agenda-club">📅 Agenda du club — stages &amp; événements
+      <small>[ Prêt à brancher : agenda Google public du club ]</small>
+    </div>
+    <div class="fb-card">
+      <iframe title="Publications Facebook du Kimusubi Aïkido Gignac"
+        src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2Fkimusubiaikidogignac&tabs=timeline&width=500&height=640&small_header=true&adapt_container_width=true&hide_cover=false&show_facepile=false"
+        width="100%" height="640" style="border:none;overflow:hidden;max-width:500px"
+        scrolling="no" frameborder="0" allowfullscreen="true"
+        allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"
+        loading="lazy"></iframe>
+      <p class="note" style="margin-top:.6rem">Flux Facebook en direct — se met à jour automatiquement à chaque publication du club.</p>
+    </div>
+  </div>
+  <p class="note" style="margin-top:1rem">[ Emplacement Instagram : à brancher via Behold ou SociableKIT — nécessite une connexion au compte Instagram du club ]</p>
+</section>
+</div>
+
+<section id="contact">
+  <div class="section-title"><h2>Contact &amp; essai gratuit</h2><span class="jp">縁</span></div>
+  <div class="contact-grid">
+    <div class="contact-card">
+      <h3>Nous contacter</h3>
+      <p><strong>Aïkido</strong> — Jonathan Mas<br><a href="tel:+33604533482">06 04 53 34 82</a></p>
+      <p><strong>Iaïdo</strong> — Jean-Claude Saunier<br><a href="tel:+33663046939">06 63 04 69 39</a></p>
+      <p><strong>Dojo</strong> — Centre Culturel et Sportif<br>Avenue du Mas Salat, 34150 Gignac</p>
+      <p style="margin-top:1.2rem">
+        <a href="https://www.facebook.com/kimusubiaikidogignac/">Facebook</a> ·
+        <a href="https://www.youtube.com/channel/UC1yvseM5h6DQDPRgiXPhjBw">YouTube</a>
+      </p>
+    </div>
+    <div>
+      <div class="essai">
+        <p><b>Envie d'essayer ?</b> Venez simplement à un cours avec une tenue souple — le premier essai est offert et sans engagement. L'aïkido est accessible à tous, homme ou femme, de l'âge tendre à l'âge mûr.</p>
+      </div>
+      <p class="note" style="margin-top:1.2rem">[ Emplacement : formulaire de contact + dossier d'inscription PDF téléchargeable ]</p>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="foot-inner">
+    <div>
+      <h4>Kimusubi Aïkido Iaïdo Gignac</h4>
+      <p>Association loi 1901 fondée en 1981.<br>Affiliée à la Fédération Française d'Aïkido et de Budo (FFAB).</p>
+    </div>
+    <div>
+      <h4>Liens fédéraux</h4>
+      <p><a href="https://www.ffabaikido.fr">FFAB</a><br><a href="http://crk-occitanie.org">CRK Occitanie (Iaïdo)</a></p>
+    </div>
+  </div>
+  <div class="foot-bottom">© Kimusubi Aïkido Iaïdo Gignac — Association loi 1901 · Siège social : Centre Culturel et Sportif, avenue du Mas Salat, 34150 Gignac · Directeur de la publication : Jonathan Mas, président · Contact : 06 04 53 34 82</div>
+</footer>
+
+</body>
+</html>
