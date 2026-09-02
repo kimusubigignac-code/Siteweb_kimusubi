@@ -92,14 +92,13 @@ header.hero{
 .hero .depuis{margin-top:2.6rem;font-size:.85rem;letter-spacing:.14em;text-transform:uppercase;color:#5a5e63}
 .hero-illu-mobile{display:none}
 @media(max-width:760px){
-  header.hero{background:var(--washi)} /* fond propre : plus de recadrage sauvage */
+  header.hero{background:var(--washi)}
   .hero-inner{padding:3.2rem 1.2rem 2.4rem}
   .hero .kanji{font-size:2.2rem;top:1.2rem;right:.8rem}
   .hero p.lede{font-size:1rem}
   .btn,.btn.ghost{display:block;margin:0 auto .8rem;max-width:280px}
   .btn.ghost{margin-left:auto}
   .hero .depuis{margin-top:1.6rem}
-  /* l'illustration s'affiche entière sous le texte, jamais coupée */
   .hero-illu-mobile{display:block;width:100%;height:auto;border-top:1px solid var(--line)}
   .fond-page{opacity:.18}
 }
@@ -155,6 +154,7 @@ td strong{font-weight:800}
 @media(max-width:760px){.tarifs{grid-template-columns:1fr}}
 .tarif{background:rgba(255,255,255,.92);border:1px solid var(--line);border-radius:var(--radius);padding:1.6rem}
 .tarif h3{font-size:1.15rem;margin-bottom:1rem}
+.tarif h4{font-family:'Manrope',sans-serif;font-size:.78rem;letter-spacing:.1em;text-transform:uppercase;color:var(--indigo);margin:1.1rem 0 .2rem}
 .tarif ul{list-style:none}
 .tarif li{display:flex;justify-content:space-between;gap:1rem;padding:.5rem 0;border-bottom:1px dashed var(--line);font-size:.95rem}
 .tarif li:last-child{border-bottom:none}
@@ -165,22 +165,31 @@ td strong{font-weight:800}
 .ens .card{border-top-color:var(--ink)}
 .ens .dan{font-size:.83rem;color:var(--indigo);font-weight:700}
 
-/* Vie du club — fond illustré */
+/* ---------- Vie du club — fond illustré + widgets ---------- */
 .vie-wrap{
   background:
     linear-gradient(rgba(246,244,238,.82), rgba(246,244,238,.82)),
     url('img/fond-vie.jpg') center/cover no-repeat;
   border-top:1px solid var(--line);border-bottom:1px solid var(--line);
 }
-.widgets{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem}
+.widgets{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;align-items:start}
 @media(max-width:900px){.widgets{grid-template-columns:1fr}}
-.widget{
-  border:2px dashed var(--indigo);border-radius:var(--radius);
-  padding:2.2rem 1.6rem;text-align:center;background:rgba(236,232,222,.8);
-  color:var(--indigo-deep);font-weight:700;font-size:.95rem;
+.widget-card{
+  background:rgba(255,255,255,.94);border:1px solid var(--line);border-radius:var(--radius);
+  padding:1.2rem;overflow:hidden;
 }
-.widget small{display:block;font-weight:500;margin-top:.5rem;color:#5a5e63}
-.fb-card{background:rgba(255,255,255,.94);border:1px solid var(--line);border-radius:var(--radius);padding:1rem;text-align:center}
+.widget-card h3{
+  font-family:'Manrope',sans-serif;font-size:.82rem;letter-spacing:.12em;text-transform:uppercase;
+  color:var(--indigo);border-bottom:1px solid var(--line);padding-bottom:.7rem;margin-bottom:1rem;
+}
+.widget-card.agenda{margin-top:1.5rem}
+.widget-card iframe{width:100%;border:none;display:block}
+/* Les widgets tiers (SociableKIT / Behold) : contenus, jamais débordants */
+.widget-scroll{max-height:640px;overflow-y:auto;overscroll-behavior:contain}
+@media(max-width:600px){
+  .widget-scroll{max-height:520px}
+  .widget-card{padding:.9rem}
+}
 
 .contact-grid{display:grid;grid-template-columns:1.2fr 1fr;gap:2rem}
 @media(max-width:760px){.contact-grid{grid-template-columns:1fr}}
@@ -278,13 +287,16 @@ footer h4{color:#fff;font-family:'Manrope',sans-serif;font-size:.8rem;letter-spa
   <div class="tarifs">
     <div class="tarif">
       <h3>Aïkido</h3>
+      <h4>Adultes</h4>
       <ul>
         <li>Licence adulte <b>45 €</b></li>
         <li>Cotisation adulte <b>160 €</b></li>
-        <li> --------------------------------------</li>
+      </ul>
+      <h4>Enfants</h4>
+      <ul>
         <li>Licence enfant <b>30 €</b></li>
-        <li>Cotisation enfant 2 ou 3 cours  <b>130 €</b></li>
-        <li>Cotisation enfant 1 cours  <b>110 €</b></li>
+        <li>Cotisation enfant 2 ou 3 cours <b>130 €</b></li>
+        <li>Cotisation enfant 1 cours <b>110 €</b></li>
       </ul>
       <p class="note">Paiement en 3 fois possible. Encaissable avant fin décembre.</p>
     </div>
@@ -294,7 +306,7 @@ footer h4{color:#fff;font-family:'Manrope',sans-serif;font-size:.8rem;letter-spa
         <li>Licence <b>56 €</b></li>
         <li>Cotisation club <b>110 €</b></li>
         <li>Passeport (1ʳᵉ année) <b>10 €</b></li>
-        <li>Cour JJ Sauvage pour les non membre du club <b>10 €</b></li>
+        <li>Cours J.-J. Sauvage pour les non-membres du club <b>10 €</b></li>
         <li>Adhérents section Aïkido <b>Gratuit</b></li>
       </ul>
       <p class="note">Prêt de iaï-to ou de bokken par le club avant un achat personnel. Tenue obligatoire dès la 2ᵉ année.</p>
@@ -319,24 +331,36 @@ footer h4{color:#fff;font-family:'Manrope',sans-serif;font-size:.8rem;letter-spa
 <div class="vie-wrap">
 <section id="actus">
   <div class="section-title"><h2>La vie du club</h2><span class="jp">今</span></div>
+
   <div class="widgets">
-    <div class="fb-card">
-      <div class="sk-ww-facebook-page-posts" data-embed-id="25710149"></div><script src="https://widgets.sociablekit.com/facebook-page-posts/widget.js" defer></script>
+    <div class="widget-card">
+      <h3>Sur Facebook</h3>
+      <div class="widget-scroll">
+        <div class="sk-ww-facebook-page-posts" data-embed-id="25710149"></div>
+        <script src="https://widgets.sociablekit.com/facebook-page-posts/widget.js" defer></script>
+      </div>
     </div>
-    <div>
-      <behold-widget feed-id="WgJVfvYKt9JRd8QwfSSB"></behold-widget>
-      <script>
-        (() => {
-          if(window.__bhldScript)return;window.__bhldScript=true;
-          const d=document,s=d.createElement("script");s.type="module";
-          s.src="https://w.behold.so/widget.js";setTimeout(()=>{d.head.append(s);},0);
-        })();
-      </script>
+
+    <div class="widget-card">
+      <h3>Sur Instagram</h3>
+      <div class="widget-scroll">
+        <behold-widget feed-id="WgJVfvYKt9JRd8QwfSSB"></behold-widget>
+        <script>
+          (() => {
+            if(window.__bhldScript)return;window.__bhldScript=true;
+            const d=document,s=d.createElement("script");s.type="module";
+            s.src="https://w.behold.so/widget.js";setTimeout(()=>{d.head.append(s);},0);
+          })();
+        </script>
+      </div>
     </div>
-    <div>
-       <iframe src="https://calendar.google.com/calendar/embed?height=600&wkst=1&ctz=Europe%2FBrussels&showPrint=0&showTabs=0&showCalendars=0&title=Agenda%20du%20club%20&src=a2ltdXN1YmlnaWduYWNAZ21haWwuY29t&color=%23039be5" style="border:solid 1px #777" width="800" height="600" frameborder="0" scrolling="no"></iframe>
-    </div>
-     
+  </div>
+
+  <div class="widget-card agenda">
+    <h3>Agenda — stages &amp; événements</h3>
+    <iframe title="Agenda du club Kimusubi"
+      src="https://calendar.google.com/calendar/embed?height=500&wkst=2&ctz=Europe%2FParis&showPrint=0&showTabs=0&showCalendars=0&showTitle=0&mode=AGENDA&src=a2ltdXN1YmlnaWduYWNAZ21haWwuY29t&color=%2326415E"
+      height="500" loading="lazy"></iframe>
   </div>
 </section>
 </div>
